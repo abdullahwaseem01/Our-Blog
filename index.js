@@ -65,6 +65,19 @@ app.post('/addPost', function(req, res){
 app.get('/blogPost', function(req, res){
     res.sendFile(__dirname + '/blogPost.html');
 })
+app.get('/blogPost2', function(req, res){
+    res.sendFile(__dirname + '/blogPost2.html');
+})
+app.get('/blogPost3', function(req, res){
+    res.sendFile(__dirname + '/blogPost3.html');
+})
+app.get('/blogPost4', function(req, res){
+    res.sendFile(__dirname + '/blogPost4.html');
+})
+app.get('/blogPost5', function(req, res){
+    res.sendFile(__dirname + '/blogPost5.html');
+})
+
 
 app.listen(process.env.PORT || 3000, () =>{
     console.log('server is live!')
