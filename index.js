@@ -23,11 +23,11 @@ app.get('/blog', function(req, res){
 
     fs.readFile(__dirname +'/database.json', 'utf8', (err, jsonString) => {
             const database = JSON.parse(jsonString)
-            console.log(database.title1[0]);
+            //console.log(database.title1[0]);
             const blogTitle = database.title1;
     })
 
-    console.log(blog);
+    //console.log(blog);
     
     res.sendFile(__dirname + '/blog.html');
 })
@@ -53,7 +53,7 @@ app.post('/addPost', function(req, res){
         }
         try {
             const database = JSON.parse(jsonString)
-            console.log(database.title1)
+            //console.log(database.title1)
     } catch(err) {
             console.log('Error parsing JSON string:', err)
         }
