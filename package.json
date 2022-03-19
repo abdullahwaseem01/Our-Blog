@@ -18,6 +18,8 @@
   "homepage": "https://github.com/abdullahwaseem01/WITXENGSOCXBITSOC-Hackathon-2022#readme",
   "dependencies": {
     "body-parser": "^1.19.2",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "fs": "^0.0.1-security",
+    "node-html-parser": "^5.3.3"
   }
 }
