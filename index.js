@@ -30,6 +30,14 @@ app.listen(process.env.PORT || 3000, () =>{
     console.log('server is live!')
 })
 
+app.post('/addPost', function(req, res){
+    console.log(req.body.title)
+    console.log(req.body.description)
+    console.log(req.body.posterName)
+    console.log(req.body.posting)
+    res.redirect('/addPost')
+})
+
 app.get('/user', function(req, res){
     res.sendFile(__dirname + '/users.html');
 })
