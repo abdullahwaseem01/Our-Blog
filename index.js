@@ -2,6 +2,7 @@ const exp = require('express');
 const app = exp();
 const bp = require('body-parser');
 const https = require('https');
+const blogs = require('./config')
 app.use(bp.urlencoded({extended: true}));
 app.use(exp.static('public'));
 app.use(bp.urlencoded({extended: true}));  
