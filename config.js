@@ -1,4 +1,5 @@
-const firebase = require('firebase');
+import { initializeApp } from 'firebase/app'
+import { getFirestore, collection } from 'firebase/firestore'
 const firebaseConfig = {
     apiKey: "AIzaSyCR0DrTGTKxNv0vb0pz_Tr1BfW_fd_3jFo",
     authDomain: "blog-website-2f16f.firebaseapp.com",
@@ -8,8 +9,17 @@ const firebaseConfig = {
     appId: "1:713132346150:web:02603c105dff4d63924fe7",
     measurementId: "G-QNRD3WWL6P"
   };
+initializeApp(firebaseConfig);
+const db = getFirestore();
+const blogs = collection(db, 'blogs');
 
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-  const blogs = db.collection('blogs');
-  module.exports = blogs; 
+const submission = {
+    "title": "hello",
+    "description": "world",
+    "name": "Abdullah Waseem",
+    "posting": "Just a Test"
+};
+blogs.add();
+
+
+

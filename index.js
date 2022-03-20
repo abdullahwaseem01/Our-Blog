@@ -2,7 +2,6 @@ const exp = require('express');
 const app = exp();
 const bp = require('body-parser');
 const https = require('https');
-const blogs = require('./config')
 app.use(bp.urlencoded({extended: true}));
 app.use(exp.static('public'));
 app.use(bp.urlencoded({extended: true}));  
@@ -24,10 +23,13 @@ app.get('/addPost', function(req, res){
 })
 
 app.post('/addPost', function(req, res){
-    console.log(req.body.title)
-    console.log(req.body.description)
-    console.log(req.body.posterName)
-    console.log(req.body.posting)
+    const submission = {
+        "title": req.body.title,
+        "description": req.body.description,
+        "name": req.body.posterName,
+        "posting": req.body.posting 
+    };
+    blogs.add(submission);
     res.sendFile(__dirname + '/views/success.html');
 })
 
