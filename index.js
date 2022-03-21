@@ -16,8 +16,9 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/views/home.html');
 })
 
+let blogsRef = db.collection('Blogs');
+
 app.get('/blog', function(req, res){
-    let blogsRef = db.collection('Blogs');
     blogsRef.get().then((qureySnapshot) =>{
         qureySnapshot.forEach(document =>{
             console.log(document.data().title);
@@ -33,6 +34,13 @@ app.get('/blog', function(req, res){
 })
 
 app.get('/user', function(req, res){
+    blogsRef.get().then((qureySnapshot) =>{
+        qureySnapshot.forEach(document =>{
+            console.log(document.data().name);
+        })
+        console.log('successfully author names');
+    })
+
     res.sendFile(__dirname + '/views/users.html');
 })
 
