@@ -17,6 +17,18 @@ app.get('/', function(req, res){
 })
 
 app.get('/blog', function(req, res){
+    let blogsRef = db.collection('Blogs');
+    blogsRef.get().then((qureySnapshot) =>{
+        qureySnapshot.forEach(document =>{
+            console.log(document.data().title);
+            console.log(document.data().description);
+            console.log(document.data().name);
+            console.log(document.data().posting);
+        })
+
+        console.log('successfully read all documents');
+    })
+    
     res.sendFile(__dirname + '/views/blog.html');
 })
 
