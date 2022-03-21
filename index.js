@@ -2,6 +2,12 @@ const exp = require('express');
 const app = exp();
 const bp = require('body-parser');
 const https = require('https');
+
+const admin = require("firebase-admin");
+const serviceAccount = require("./serviceAccountKey.json");
+admin.initializeApp({credential: admin.credential.cert(serviceAccount)});  
+const db = admin.firestore();
+
 app.use(bp.urlencoded({extended: true}));
 app.use(exp.static('public'));
 app.use(bp.urlencoded({extended: true}));  
@@ -24,12 +30,12 @@ app.get('/addPost', function(req, res){
 
 app.post('/addPost', function(req, res){
     const submission = {
-        "title": req.body.title,
-        "description": req.body.description,
-        "name": req.body.posterName,
-        "posting": req.body.posting 
+        title: req.body.title,
+        description: req.body.description,
+        name: req.body.posterName,
+        posting: req.body.posting 
     };
-    blogs.add(submission);
+    db.collection('Blogs').doc().set(submission);
     res.sendFile(__dirname + '/views/success.html');
 })
 
@@ -53,3 +59,5 @@ app.get('/blogPost5', function(req, res){
 app.listen(process.env.PORT || 3000, () =>{
     console.log('server is live!')
 })
+
+
