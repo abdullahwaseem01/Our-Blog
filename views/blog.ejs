@@ -82,15 +82,20 @@
       <div class="col-lg-8 col-md-10 mx-auto">
 
         <!-- Post -->
-        <article class="post-preview">
-          <a href="/blogpost">
-            <h2 class="post-title" id = "title" >Man must explore, and this is exploration at its greatest</h2>
-          </a>
-          <p class="post-meta">Posted by Abdullah Waseem</p>
-        </article>
-        <hr>
-        <!-- Post  -->
+        <% for( var i = 0; i < posts.length; i++ ) { var currentPost = posts[i] %>
 
+          <article class="post-preview">
+            <a href="/blogpost">
+              <h2 class="post-title" id = "title" ><%= currentPost[0]%> </h2>
+              <p class="post-meta"><%= currentPost[1]%> </p>
+            </a>
+            <p class="post-meta"><%= currentPost[2]%> </p>
+          </article>
+          <hr>
+
+        <% } %>
+       
+        <!-- Post  -->
       </div>
     </div>
   </div>
