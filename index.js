@@ -44,7 +44,7 @@ app.get('/blogpost', (req, res) => {
     res.render('blogpost');
 })
 
-app.get('/user', function (req, res) {
+app.get('/authors', function (req, res) {
     blogsRef.get().then((qureySnapshot) => {
         qureySnapshot.forEach(document => {
             // console.log(document.data().name);
@@ -52,14 +52,14 @@ app.get('/user', function (req, res) {
         // console.log('successfully author names');
     })
 
-    res.render('users');
+    res.render('authors');
 })
 
-app.get('/addPost', function (req, res) {
-    res.render('addPost');
+app.get('/addpost', function (req, res) {
+    res.render('addpost');
 })
 
-app.post('/addPost', function (req, res) {
+app.post('/addpost', function (req, res) {
     const submission = {
         title: req.body.title,
         description: req.body.description,
