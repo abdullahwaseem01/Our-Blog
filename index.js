@@ -37,6 +37,10 @@ app.get('/blog', function(req, res){
     res.render('blog');
 })
 
+app.get('/blogpost', (req, res)=>{
+    res.redirect('blog')
+})
+
 app.get('/user', function(req, res){
     blogsRef.get().then((qureySnapshot) =>{
         qureySnapshot.forEach(document =>{
