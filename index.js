@@ -24,13 +24,13 @@ let blogsRef = db.collection('Blogs');
 app.get('/blog', function(req, res){
     blogsRef.get().then((qureySnapshot) =>{
         qureySnapshot.forEach(document =>{
-            console.log(document.data().title);
-            console.log(document.data().description);
-            console.log(document.data().name);
-            console.log(document.data().posting);
+            // console.log(document.data().title);
+            // console.log(document.data().description);
+            // console.log(document.data().name);
+            // console.log(document.data().posting);
         })
 
-        console.log('successfully read all documents');
+        // console.log('successfully read all documents');
     })
     
     res.render('blog');
@@ -39,9 +39,9 @@ app.get('/blog', function(req, res){
 app.get('/user', function(req, res){
     blogsRef.get().then((qureySnapshot) =>{
         qureySnapshot.forEach(document =>{
-            console.log(document.data().name);
+            // console.log(document.data().name);
         })
-        console.log('successfully author names');
+        // console.log('successfully author names');
     })
 
     res.render('users');
@@ -58,8 +58,8 @@ app.post('/addPost', function(req, res){
         name: req.body.posterName,
         posting: req.body.posting 
     };
-    db.collection('Blogs').doc().set(submission);
-    res.render(+ 'success');
+    // db.collection('Blogs').doc().set(submission);
+    res.render('success');
 })
 
 
