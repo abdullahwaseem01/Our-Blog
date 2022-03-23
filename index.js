@@ -3,14 +3,17 @@ const app = exp();
 const bp = require('body-parser');
 const https = require('https');
 
+app.use(bp.urlencoded({extended: true}));
+app.use(exp.static('public'));
+app.set('view engine', 'ejs');
+
+
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 admin.initializeApp({credential: admin.credential.cert(serviceAccount)});  
 const db = admin.firestore();
 
-app.use(bp.urlencoded({extended: true}));
-app.use(exp.static('public'));
-app.use(bp.urlencoded({extended: true}));  
+
 
 app.get('/', function(req, res){
     res.sendFile(__dirname + '/views/home.html');
