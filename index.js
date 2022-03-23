@@ -27,10 +27,7 @@ app.get('/blog', function (req, res) {
     var eachPost = [];
     blogsRef.get().then((qureySnapshot) => {
         qureySnapshot.forEach(document => {
-            // console.log(document.data().title);
-            // console.log(document.data().description);
-            // console.log(document.data().name);
-            // console.log(document.data().posting);
+            eachPost = [];
             eachPost.push(document.data().title);
             eachPost.push(document.data().description);
             eachPost.push(document.data().name); 
@@ -69,7 +66,7 @@ app.post('/addPost', function (req, res) {
         name: req.body.posterName,
         posting: req.body.posting
     };
-    // db.collection('Blogs').doc().set(submission);
+    db.collection('Blogs').doc().set(submission);
     res.render('success');
 })
 
