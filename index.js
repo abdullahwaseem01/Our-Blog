@@ -23,12 +23,16 @@ app.get('/', function(req, res){
 let blogsRef = db.collection('Blogs');
 
 app.get('/blog', function(req, res){
+    var posts = [];
+    var eachPost = [];
     blogsRef.get().then((qureySnapshot) =>{
         qureySnapshot.forEach(document =>{
             // console.log(document.data().title);
             // console.log(document.data().description);
             // console.log(document.data().name);
             // console.log(document.data().posting);
+            eachPost.push(document.data().title, document.data().description, document.data().posting )
+            posts.push(eachPost);
         })
 
         // console.log('successfully read all documents');
