@@ -23,6 +23,7 @@
   <link rel="stylesheet" href="https://startbootstrap.github.io/startbootstrap-clean-blog-jekyll/assets/main.css">
 
   <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 
 
@@ -82,10 +83,10 @@
       <div class="col-lg-8 col-md-10 mx-auto">
 
         <!-- Post -->
-        <% for( var i=0 ; i < posts.length; i++ ) { var currentPost=posts[i] %>
+        <% for( var i=0 ; i < posts.length; i++ ) { var currentPost=posts[i];%>
 
           <article class="post-preview">
-            <a href="/blogpost">
+            <a href = "blogpost" onclick='postRequest("<%= currentPost[0] %> ")'>
               <h2 class="post-title" id="title">
                 <%=currentPost[0]%>
               </h2>
@@ -99,6 +100,11 @@
           <hr>
 
           <% } %>
+            <script>
+              function postRequest(title) {
+                console.log(title)
+              }
+            </script>
 
             <!-- Post  -->
       </div>

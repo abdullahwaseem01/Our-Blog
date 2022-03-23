@@ -3,6 +3,7 @@ const app = exp();
 const bp = require('body-parser');
 const https = require('https');
 const ejs = require('ejs');
+const axios = require('axios').default;
 
 app.use(bp.urlencoded({ extended: true }));
 app.use(exp.static('public'));
@@ -38,6 +39,11 @@ app.get('/blog', function (req, res) {
         });
     })
 
+})
+
+app.post('/blog', function(req, res){
+    console.log(req.body.title);
+    res.render('blogpost');
 })
 
 app.get('/blogpost', (req, res) => {
