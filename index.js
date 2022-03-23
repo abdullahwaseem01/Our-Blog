@@ -41,7 +41,7 @@ app.get('/blog', function (req, res) {
 })
 
 app.get('/blogpost', (req, res) => {
-    res.redirect('blog')
+    res.render('blogpost');
 })
 
 app.get('/user', function (req, res) {
