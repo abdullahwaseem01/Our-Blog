@@ -16,7 +16,7 @@ const db = admin.firestore();
 
 
 app.get('/', function(req, res){
-    res.sendFile(__dirname + '/views/home.html');
+    res.render('home');
 })
 
 let blogsRef = db.collection('Blogs');
@@ -33,7 +33,7 @@ app.get('/blog', function(req, res){
         console.log('successfully read all documents');
     })
     
-    res.sendFile(__dirname + '/views/blog.html');
+    res.render('blog');
 })
 
 app.get('/user', function(req, res){
@@ -44,11 +44,11 @@ app.get('/user', function(req, res){
         console.log('successfully author names');
     })
 
-    res.sendFile(__dirname + '/views/users.html');
+    res.render('users');
 })
 
 app.get('/addPost', function(req, res){
-    res.sendFile(__dirname + '/views/addPost.html');
+    res.render('addPost');
 })
 
 app.post('/addPost', function(req, res){
@@ -59,24 +59,9 @@ app.post('/addPost', function(req, res){
         posting: req.body.posting 
     };
     db.collection('Blogs').doc().set(submission);
-    res.sendFile(__dirname + '/views/success.html');
+    res.render(+ 'success');
 })
 
-app.get('/blogPost', function(req, res){
-    res.sendFile(__dirname + '/views/blogPost.html');
-})
-app.get('/blogPost2', function(req, res){
-    res.sendFile(__dirname + '/views/blogPost2.html');
-})
-app.get('/blogPost3', function(req, res){
-    res.sendFile(__dirname + '/views/blogPost3.html');
-})
-app.get('/blogPost4', function(req, res){
-    res.sendFile(__dirname + '/views/blogPost4.html');
-})
-app.get('/blogPost5', function(req, res){
-    res.sendFile(__dirname + '/views/blogPost5.html');
-})
 
 
 app.listen(process.env.PORT || 3000, () =>{
