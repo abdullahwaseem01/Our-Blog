@@ -59,8 +59,9 @@ app.get('/authors', function (req, res) {
             allAuthors.push(document.data().name);
         })
         var authors = underscore.uniq(allAuthors); 
-        console.log(authors);
-        res.render('authors');
+        res.render('authors', {
+            authors:authors
+        });
     })
 
 })

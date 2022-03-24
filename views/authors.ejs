@@ -69,7 +69,6 @@
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
             <h1>Authors</h1>
-
             <span class="subheading">Our team.</span>
 
           </div>
@@ -82,53 +81,37 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
 
+        <!-- Post -->
+        <% for( var i=0 ; i < authors.length; i++ ) { var currentAuthor=authors[i];%>
 
+          <article class="post-preview">
+              
+              <h2 class="post-title" id="title">
+                <%=currentAuthor%>
+              </h2>
+          </article>
+          <hr>
 
-        <!-- Home Post List -->
-
-
-        <article class="post-preview">
-          <a href="https://www.linkedin.com/in/abdullahwaseem01/">
-            <h2 class="post-title">Abdullah Waseem</h2>
-
-            <h3 class="post-subtitle">3rd year Software Engineering Student</h3>
-            <p>Click to contact via LinkedIn</p>
-
-          </a>
-
-        </article>
-
-        <hr>
-        <article class="post-preview">
-          <a href="https://www.linkedin.com/in/abir-ihsan-333a83202/">
-            <h2 class="post-title">Abir Ihsan</h2>
-
-            <h3 class="post-subtitle">3rd year Electrical Engineering Student</h3>
-            <p>Click to contact via LinkedIn</p>
-          </a>
-
-        </article>
+          <% } %>
       </div>
     </div>
+  </div>
+  <!-- Footer -->
+  <hr>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
 
-
-    <!-- Footer -->
-    <hr>
-
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-
-            <p class="copyright text-muted">Copyright &copy; Our Team 2022</p>
-          </div>
+          <p class="copyright text-muted">Copyright &copy; Our Team 2022</p>
         </div>
       </div>
-    </footer>
-    <!-- Footer -->
+    </div>
+  </footer>
+  <!-- Footer -->
 
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 
