@@ -49,6 +49,7 @@ app.post('/blog', function(req, res){
 })
 
 app.get('/blogpost', (req, res) => {
+    console.log(req.body.title);
     res.render('blogpost');
 })
 

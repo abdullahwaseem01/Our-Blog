@@ -98,13 +98,12 @@
             </p>
           </article>
           <hr>
+          <form action="/blogpost" method="post">
+            <h2 class="post-title" id="title" name = 'title'><%=currentPost[0]%></h2>
+            <button class="btn btn-primary float-left" type="submit" >View</button>
+          </form>
 
           <% } %>
-            <script>
-              function postRequest(title) {
-                console.log(title)
-              }
-            </script>
 
             <!-- Post  -->
       </div>
