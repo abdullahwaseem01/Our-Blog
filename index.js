@@ -48,8 +48,8 @@ app.get('/blog', function (req, res) {
 })
 
 //Blog Post Route 
-app.get('/blogpost', (req, res) => {
-    console.log(req.body.title);
+app.get('/blogpost/:title', (req, res) => {
+    console.log(req.params.title);
     res.render('blogpost');
 })
 
