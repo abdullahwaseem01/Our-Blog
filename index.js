@@ -18,6 +18,7 @@ app.listen(process.env.PORT || 3000, () => {
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
 const { PassThrough } = require('stream');
+const { title } = require('process');
 admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 const db = admin.firestore();
 let blogsRef = db.collection('Blogs');
@@ -48,9 +49,27 @@ app.get('/blog', function (req, res) {
 })
 
 //Blog Post Route 
+function randomIntFromInterval(min, max) { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min)
+  }
 app.get('/blogpost/:title', (req, res) => {
-    console.log(req.params.title);
-    res.render('blogpost');
+    const title = req.params.title;
+    const rndInt = randomIntFromInterval(1, 6)
+    blogsRef.get().then((qureySnapshot) => {
+        qureySnapshot.forEach(document => {
+            if(title === document.data().title){
+                res.render('blogpost', {
+                    title: title,
+                    description: document.data().description,
+                    author: document.data().name,
+                    posting: document.data().posting,
+                    int: rndInt
+                });
+            } else{
+                //pass
+            }
+        })
+    })
 })
 
 //Authors Route
@@ -70,7 +89,7 @@ app.get('/authors', function (req, res) {
 
 //Add Post Route 
 app.get('/addpost', function (req, res) {
-    res.render('addpost');
+    res.render('addPost');
 })
 app.post('/addpost', function (req, res) {
     const submission = {
@@ -79,6 +98,7 @@ app.post('/addpost', function (req, res) {
         name: req.body.posterName,
         posting: req.body.posting
     };
+    console.log
     db.collection('Blogs').doc().set(submission);
     res.render('success');
 })

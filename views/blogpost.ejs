@@ -59,18 +59,18 @@
 
     <!-- Page Header -->
 
-    <header class="masthead" style="background-image: url('/img/posts/EJSimgNum.jpg')">
+    <header class="masthead" style="background-image: url('/img/posts/0<%=int%>.jpg')">
 
         <div class="overlay"></div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="post-heading">
-                        <h1>EJStitle</h1>
+                        <h1><%= title %> </h1>
 
-                        <h2 class="subheading">EJSdescription</h2>
+                        <h2 class="subheading"><%= description %> </h2>
 
-                        <span class="meta">Posted by ejsposter</span>
+                        <span class="meta">Posted by <%= author %> </span>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@
                         &larr; Back<span class="d-none d-md-inline"></span>
                     </a>
                 </div>
-                <p>EJSposting</p>
+                <p><%= posting %> </p>
             </div>
         </div>
     </div>
