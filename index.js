@@ -3,6 +3,7 @@ const app = exp();
 const bp = require('body-parser');
 const https = require('https');
 const ejs = require('ejs');
+const underscore = require('underscore');
 const axios = require('axios').default;
 
 app.use(bp.urlencoded({ extended: true }));
@@ -12,6 +13,7 @@ app.set('view engine', 'ejs');
 
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
+const { PassThrough } = require('stream');
 admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 const db = admin.firestore();
 
@@ -51,14 +53,16 @@ app.get('/blogpost', (req, res) => {
 })
 
 app.get('/authors', function (req, res) {
+    var allAuthors = [];
     blogsRef.get().then((qureySnapshot) => {
         qureySnapshot.forEach(document => {
-            // console.log(document.data().name);
+            allAuthors.push(document.data().name);
         })
-        // console.log('successfully author names');
+        var authors = underscore.uniq(allAuthors); 
+        console.log(authors);
+        res.render('authors');
     })
 
-    res.render('authors');
 })
 
 app.get('/addpost', function (req, res) {
