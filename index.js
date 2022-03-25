@@ -22,7 +22,8 @@ const { title } = require('process');
 admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 const db = admin.firestore();
 let blogsRef = db.collection('Blogs');
-
+let usersRef = db.collection('Users');
+let userRequest = db.collection('Posting Requests');
 
 //Home Route 
 app.get('/', function (req, res) {
@@ -92,16 +93,51 @@ app.get('/addpost', function (req, res) {
     res.render('addPost');
 })
 app.post('/addpost', function (req, res) {
+    var users = [];
     const submission = {
         title: req.body.title,
         description: req.body.description,
         name: req.body.posterName,
         posting: req.body.posting
     };
-    console.log
-    db.collection('Blogs').doc().set(submission);
-    res.render('success');
+    usersRef.get().then((qureySnapshot) => {
+        qureySnapshot.forEach(document => {
+            users.push(document.data().name)
+        })
+        console.log(users)
+        if(underscore.contains(users, req.body.posterName)){
+            blogsRef.doc().set(submission);
+            res.render('success',{
+                successType: 'Your submission has been posted to Our Blog'
+            });
+        } else{
+            res.render('request', {
+                header: 'Failure',
+                subheading: 'Please try again or request access to post below.',
+                btnLink: '/addpost',
+            });
+        }
+    })
+    
 })
 
+app.get('/request', function(req, res){
+    res.render('request',{
+        header: 'Become an Our Blog Author',
+        subheading: 'Request access     to post below.',
+        btnLink: '/',
+    });
+})
+
+app.post('/request', function(req, res){
+    const requestSubmission ={
+        name: req.body.name, 
+        email : req.body.requesterEmail, 
+    };
+    userRequest.doc().set(requestSubmission);
+    res.render('success', {
+        successType: 'Your request to become an Our Blog author has been sent.'
+    })
+})
 
 

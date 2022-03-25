@@ -62,17 +62,16 @@
 
   <!-- Page Header -->
 
-  <header class="masthead" style="background-image: url('/img/bg-index.jpg')">
-
+  <header class="masthead" style="background-image: url('/img/bg-post.jpg')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1>Congratulations!</h1>
+            <h1>Success!</h1>
 
-            <span class="subheading">You successfully submitted a blog post.</span>
-            <a href="/addPost" class="btn btn-dark" style="margin-top: 1rem;">Submit again</a>
+            <span class="subheading"><%= successType %></span>
+            <a href="/blog" class="btn btn-dark" style="margin-top: 1rem;">Read some of the posts on Our Blog</a>
           </div>
         </div>
       </div>
@@ -80,8 +79,6 @@
   </header>
 
   <!-- Footer -->
-  <hr>
-
   <footer>
     <div class="container">
       <div class="row">
