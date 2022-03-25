@@ -1,21 +1,21 @@
 {
-  "name": "witxengsocxbitsoc-hackathon-2022",
+  "name": "our-blog",
   "version": "1.0.0",
-  "description": "blog page ",
+  "description": " ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/abdullahwaseem01/WITXENGSOCXBITSOC-Hackathon-2022.git"
+    "url": "git+https://github.com/abdullahwaseem01/Our-Blog.git"
   },
   "author": "Abdullah Waseem",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/abdullahwaseem01/WITXENGSOCXBITSOC-Hackathon-2022/issues"
+    "url": "https://github.com/abdullahwaseem01/Our-Blog/issues"
   },
-  "homepage": "https://github.com/abdullahwaseem01/WITXENGSOCXBITSOC-Hackathon-2022#readme",
+  "homepage": "https://github.com/abdullahwaseem01/Our-Blog#readme",
   "dependencies": {
     "axios": "^0.26.1",
     "body-parser": "^1.19.2",
