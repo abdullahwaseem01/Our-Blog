@@ -15,8 +15,6 @@ app.listen(process.env.PORT || 3000, () => {
 //Firebase configuration 
 const admin = require("firebase-admin");
 const serviceAccount = require("./serviceAccountKey.json");
-const { PassThrough } = require('stream');
-const { title } = require('process');
 admin.initializeApp({ credential: admin.credential.cert(serviceAccount) });
 const db = admin.firestore();
 let blogsRef = db.collection('Blogs');
