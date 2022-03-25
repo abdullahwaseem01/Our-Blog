@@ -1,10 +1,8 @@
 const exp = require('express');
 const app = exp();
 const bp = require('body-parser');
-const https = require('https');
 const ejs = require('ejs');
 const underscore = require('underscore');
-const axios = require('axios').default;
 
 //Express configuration 
 app.use(bp.urlencoded({ extended: true }));
@@ -50,7 +48,7 @@ app.get('/blog', function (req, res) {
 })
 
 //Blog Post Route 
-function randomIntFromInterval(min, max) { // min and max included 
+function randomIntFromInterval(min, max) {
     return Math.floor(Math.random() * (max - min + 1) + min)
   }
 app.get('/blogpost/:title', (req, res) => {
@@ -121,14 +119,14 @@ app.post('/addpost', function (req, res) {
     
 })
 
+//Request Route 
 app.get('/request', function(req, res){
     res.render('request',{
         header: 'Become an Our Blog Author',
-        subheading: 'Request access     to post below.',
+        subheading: 'Request access to post below.',
         btnLink: '/',
     });
 })
-
 app.post('/request', function(req, res){
     const requestSubmission ={
         name: req.body.name, 
