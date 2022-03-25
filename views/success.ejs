@@ -70,7 +70,9 @@
           <div class="page-heading">
             <h1>Success!</h1>
 
-            <span class="subheading"><%= successType %></span>
+            <span class="subheading">
+              <%= successType %>
+            </span>
             <a href="/blog" class="btn btn-dark" style="margin-top: 1rem;">Read some of the posts on Our Blog</a>
           </div>
         </div>
@@ -79,12 +81,21 @@
   </header>
 
   <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-10 mx-auto">
-
-          <p class="copyright text-muted">Copyright &copy; Our Team 2022</p>
+  <footer class="">
+    <div class="container px-4 px-lg-5">
+      <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+          <ul class="list-inline text-center">
+            <li class="list-inline-item">
+              <a href="https://github.com/abdullahwaseem01/Our-Blog">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <div class="small text-center text-muted fst-italic">Copyright &copy; Our Blog 2022</div>
         </div>
       </div>
     </div>
