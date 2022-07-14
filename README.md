@@ -1,5 +1,4 @@
-# Our Blog 
-[![visit site](https://img.shields.io/badge/visit-site-informational?style=flat&color=green)](https://visitourblog.herokuapp.com/)
+# Our Blog [![visit site](https://img.shields.io/badge/visit-site-informational?style=flat&color=green)](https://visitourblog.herokuapp.com/)
 
 Our Blog is a website where users can go to read blog posts from a variety of authors. Users can request to be an Our Blog author and post directly from the Our Blog site.
 
